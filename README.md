@@ -49,17 +49,20 @@ Before getting started, ensure you have the following installed:
 
 8. Check if pod is up and running:
 
-   ```bash```
-   check deployments
+   Check deployments
    ```
    kubectl get deployment -n default
-   #check service
+   ```
+   Check service
+   ```
    kubectl get service -n default
-   #to check the pods
+   ```
+   To check the pods
+   ```
    kubectl get pods -n default
    ```
    
-9. Run the port-forward to expose the service:
+10. Run the port-forward to expose the service:
 
    ```bash
    kubectl port-forward service/<service_name> 5000:5000
