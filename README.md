@@ -22,32 +22,48 @@ Before getting started, ensure you have the following installed:
    git clone https://github.com/ARTSZL/flask-monitoring-app.git
    cd flask-monitoring-app
 
-2. Retrieve an authentication token and authenticate your Docker client to your registry:
+2. Install dependencies:
+
+   ```bash
+   pip3 install -r requirements.txt 
+
+3. Build Docker image:
+
+   ```bash
+   docker build -t my-flask-app
+
+4. Run Docker container:
+
+   ```bash
+   docker run -p 5000:5000 mt-flask-app
+
+5. Create an ECR repository by running:
+
+   ```bash
+   python3 ecr.py
+
+6. Retrieve an authentication token and authenticate your Docker client to your registry:
 
    ```bash
    aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com
-   
-3. Build Docker Image:
 
-   ```bash
-   docker build -t my-flask-app .
-
-4. Tag and Push to AWS ECR:
+7. Tag and Push to AWS ECR:
 
    ```bash
    docker tag my_monitoring_app_image:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/my_monitoring_app_image:latest
    docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/my_monitoring_app_image:latest
 
-5. Create an EKS cluster and add node group.
+8. Create an EKS cluster and add node group.
 
-6. Create a node group in the EKS cluster.
+9. Create a node group in the EKS cluster.
 
-7. Run eks.py file:
+10. Run eks.py file:
 
    ```bash
    python3 eks.py
+   ```
 
-8. Check if pod is up and running:
+11. Check if pod is up and running:
 
    Check deployments
    ```
