@@ -66,6 +66,7 @@ Before getting started, ensure you have the following installed:
 
    ```bash
    kubectl port-forward service/<service_name> 5000:5000
+   ```
 
 ## Usage
 
